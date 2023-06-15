@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:page_transition/page_transition.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -55,8 +56,9 @@ class FirstScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => SecondScreen()),
+                          PageTransition(
+                              child: SecondScreen(),
+                              type: PageTransitionType.rightToLeftWithFade),
                         );
                       }))
             ]),
