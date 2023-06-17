@@ -6,6 +6,8 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 this is a new app for manychat chat bot.
+this app is a work in progress.
+
 
 A few resources to get you started if this is your first Flutter project:
 

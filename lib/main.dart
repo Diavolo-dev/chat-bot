@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:shimmer_animation/shimmer_animation.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -28,11 +29,12 @@ class FirstScreen extends StatelessWidget {
             ),
             child: Stack(children: [
               const Positioned(
-                left: 16,
-                right: 16,
-                top: 40,
+                left: 40,
+                right: 40,
+                top: 60,
                 child: Text(
-                  'Diva chat bot is a new way, a simple way, to access what you need, when you need it.',
+                  'Diva chat bot is a new way,    a simple way,                               to access what you need, when you need it.',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: 'Source_Sans_Pro',
                     fontSize: 24,
@@ -41,10 +43,19 @@ class FirstScreen extends StatelessWidget {
                 ),
               ),
               Positioned(
-                  left: 260,
-                  right: 40,
-                  bottom: 50,
-                  child: TextButton(
+                left: 50,
+                right: 50,
+                bottom: 50,
+                child: Shimmer(
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xff5659DF),
+                        foregroundColor: Colors.white,
+                        elevation: 3,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(32.0)),
+                        minimumSize: Size(300, 65),
+                      ),
                       child: Text(
                         'Next',
                         style: TextStyle(
@@ -54,13 +65,25 @@ class FirstScreen extends StatelessWidget {
                             color: Colors.white),
                       ),
                       onPressed: () {
+                        // Navigator.push(
+                        //   context,
+                        //   PageRouteBuilder(
+                        //     pageBuilder: (_, __, ___) => SecondScreen(),
+                        //     transitionDuration: Duration(seconds: 1),
+                        //     transitionsBuilder: (_, a, __, c) =>
+                        //         FadeTransition(opacity: a, child: c),
+                        //   ),
+                        // );
                         Navigator.push(
                           context,
                           PageTransition(
+                              duration: Duration(milliseconds: 400),
                               child: SecondScreen(),
-                              type: PageTransitionType.rightToLeftWithFade),
+                              type: PageTransitionType.bottomToTop),
                         );
-                      }))
+                      }),
+                ),
+              )
             ]),
           ),
         ],
@@ -81,59 +104,67 @@ class SecondScreen extends StatelessWidget {
             height: (screenHeight - statusBarHeight),
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/background_image.png'),
+                image: AssetImage('assets/background_image.jpg'),
                 fit: BoxFit.fill,
               ),
             ),
             child: Stack(
               children: [
+                // const Positioned(
+                //   left: 16,
+                //   right: 16,
+                //   top: 40,
+                //   child: Text(
+                //     'What you need is within your reach with just one click.',
+                //     style: TextStyle(
+                //       fontFamily: 'Source_Sans_Pro',
+                //       fontSize: 24,
+                //       fontWeight: FontWeight.bold,
+                //     ),
+                //   ),
+                // ),
                 const Positioned(
-                  left: 16,
-                  right: 16,
-                  top: 40,
+                  left: 40,
+                  right: 40,
+                  bottom: 250,
                   child: Text(
-                    'What you need is within your reach with just one click.',
+                    'If you\'re looking for a new house or a new job, even if you\'re selling your house or need an expert to hire,     You Are One Click Away.',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Source_Sans_Pro',
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                const Positioned(
-                  left: 16,
-                  right: 16,
-                  bottom: 110,
-                  child: Text(
-                    'If you\'re looking for a new house or a new job, even if you\'re selling your house or need an expert to hire,    You Are One Click Away.',
-                    style: TextStyle(
-                      fontFamily: 'Source_Sans_Pro',
-                      fontSize: 16,
+                      fontSize: 20,
                     ),
                   ),
                 ),
                 Positioned(
-                  left: 30,
-                  right: 30,
-                  bottom: 20,
-                  child: ElevatedButton(
-                    onPressed: () async {
-                      const url = 'https://hansa-tile.de/test10/';
-                      if (await canLaunch(url)) {
-                        await launch(url);
-                      } else {
-                        throw 'Could not launch $url';
-                      }
-                    },
-                    child: Text('Let\'s Talk'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue.shade900,
-                      padding: const EdgeInsets.only(
-                          left: 120, right: 120, top: 20, bottom: 20),
-                      textStyle: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold),
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                  left: 50,
+                  right: 50,
+                  bottom: 50,
+                  child: Shimmer(
+                    child: ElevatedButton(
+                      onPressed: () async {
+                        const url = 'https://hansa-tile.de/test10/';
+                        if (await canLaunch(url)) {
+                          await launch(url);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      },
+                      child: Text(
+                        'Let\'s Talk',
+                        style: TextStyle(
+                            fontFamily: 'Source_Sans_Pro',
+                            fontSize: 27,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xff171E41),
+                        foregroundColor: Colors.white,
+                        elevation: 3,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(32.0)),
+                        minimumSize: Size(300, 65),
                       ),
                     ),
                   ),
