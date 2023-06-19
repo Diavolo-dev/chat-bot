@@ -1,0 +1,152 @@
+import 'package:flutter/material.dart';
+
+import 'package:my_app/data';
+import 'package:url_launcher/url_launcher.dart';
+
+
+class UiScreens extends StatefulWidget {
+  const UiScreens({super.key});
+
+  @override
+  State<UiScreens> createState() => _UiScreensState();
+}
+
+class _UiScreensState extends State<UiScreens> {
+  int currentIndex = 0;
+  PageController? _controller;
+  @override
+  void initState() {
+    _controller = PageController(initialPage: 0);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller!.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xff231f1e),
+      body: Column(
+        children: [
+          Expanded(
+            flex: 3,
+            child: PageView.builder(
+              itemCount: contents.length,
+              controller: _controller,
+              onPageChanged: (value) {
+                setState(() {
+                  currentIndex = value;
+                });
+              },
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(40.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Spacer(),
+                      Image.asset(contents[index].image),
+                      const Spacer(),
+                      Text(
+                        contents[index].title,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontFamily: "Gilroy-Bold",
+                          fontSize: 28.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        contents[index].discription,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontFamily: "Gilroy-Regular",
+                          fontSize: 14.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Spacer(flex: 2),
+                ElevatedButton(
+                  onPressed: ()   async{
+                    if (currentIndex == contents.length) {
+                      // Go to next page
+                    } else {
+                       {
+                        const url = 'https://hansa-tile.de/test10/';
+                        if (await canLaunch(url)) {
+                          await launch(url);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      }
+                    };
+                    
+                    _controller!.nextPage(
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.easeInOut,
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xff5659DF),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 40, vertical: 15),
+                    child: Text(
+                      currentIndex == contents.length - 1
+                          ? "Lets Chat"
+                          : "Next",
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    contents.length,
+                    (index) => buildDot(index, context),
+                  ),
+                ),
+                const Spacer(),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+
+
+
+  AnimatedContainer buildDot(int index, BuildContext context) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.easeInOut,
+      height: 6,
+      width: currentIndex == index ? 24 : 6,
+      margin: const EdgeInsets.only(right: 7),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: currentIndex == index ? Colors.white : Colors.white24,
+      ),
+    );
+  }
+}
+
+

@@ -35,8 +35,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - background_image.jpg
-    - background_imagee.jpg
+    - assets/
+  #   - images/a_dot_ham.jpeg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -51,14 +51,13 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Source_Sans_Pro
+    - family: Gilroy-Bold
       fonts:
-        - asset: fonts/SourceSansPro-Bold.ttf
-        - asset: fonts/SourceSansPro-Regular.ttf
+        - asset: fonts/Gilroy-Bold.ttf
   #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
+    - family: Gilroy-Regular
+      fonts:
+        - asset: fonts/Gilroy-Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
