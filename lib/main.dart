@@ -69,7 +69,7 @@ class FirstScreen extends StatelessWidget {
                       PageTransition(
                           duration: Duration(milliseconds: 400),
                           child: SecondScreen(),
-                          type: PageTransitionType.fade),
+                          type: PageTransitionType.rightToLeftWithFade),
                     );
                   },
                 ),
@@ -125,7 +125,7 @@ class SecondScreen extends StatelessWidget {
                         PageTransition(
                             duration: Duration(milliseconds: 400),
                             child: ThirdScreen(),
-                            type: PageTransitionType.fade),
+                            type: PageTransitionType.rightToLeftWithFade),
                       );
                     },
                     child: Text(
