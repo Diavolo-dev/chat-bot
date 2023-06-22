@@ -253,22 +253,7 @@ class _OnboardingPageState extends StatelessWidget {
 
 
 
-// class FirstScreen extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     final screenHeight = MediaQuery.of(context).size.height;
-//     final statusBarHeight = MediaQuery.of(context).padding.top;
-//     return Scaffold(
-//       body: ListView(
-//         children: [
-//           Container(
-//             height: (screenHeight - statusBarHeight),
-//             decoration: const BoxDecoration(
-//               image: DecorationImage(
-//                 image: AssetImage('assets/background_imagee.jpg'),
-//                 fit: BoxFit.fill,
-//               ),
-//             ),
+
 //             child: Stack(children: [
 //               const Positioned(
 //                 left: 40,
