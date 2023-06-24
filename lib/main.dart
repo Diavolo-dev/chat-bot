@@ -254,60 +254,6 @@ class _OnboardingPageState extends StatelessWidget {
 
 
 
-//             child: Stack(children: [
-//               const Positioned(
-//                 left: 40,
-//                 right: 40,
-//                 bottom: 180,
-//                 child: Text(
-//                   'The standard method of getting new clients starts from marketing to the right people down to closing the deal.',
-//                   textAlign: TextAlign.center,
-//                   style: TextStyle(
-//                     fontFamily: "Gilroy-Regular",
-//                     fontSize: 14.0,
-//                     color: Colors.white,
-//                   ),
-//                 ),
-//               ),
-//               Positioned(
-//                 left: 50,
-//                 right: 50,
-//                 bottom: 50,
-//                 child: ElevatedButton(
-//                   style: ElevatedButton.styleFrom(
-//                     backgroundColor: Color(0xff302E38),
-//                     foregroundColor: Colors.white,
-//                     elevation: 3,
-//                     shape: RoundedRectangleBorder(
-//                         borderRadius: BorderRadius.circular(32.0)),
-//                     minimumSize: Size(300, 65),
-//                   ),
-//                   child: Text(
-//                     'Next',
-//                     style: TextStyle(
-//                         fontFamily: 'Source_Sans_Pro',
-//                         fontSize: 25,
-//                         fontWeight: FontWeight.bold,
-//                         color: Colors.white),
-//                   ),
-//                   onPressed: () {
-//                     Navigator.push(
-//                       context,
-//                       PageTransition(
-//                           duration: Duration(milliseconds: 400),
-//                           child: SecondScreen(),
-//                           type: PageTransitionType.rightToLeftWithFade),
-//                     );
-//                   },
-//                 ),
-//               )
-//             ]),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
 
 // class SecondScreen extends StatelessWidget {
 //   @override
