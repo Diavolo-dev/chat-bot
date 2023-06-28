@@ -6,7 +6,7 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 this is a new app for manychat chat bot.
-this app is a work in progress and it will be update everyday.
+this app is a work in progress
 
 
 
